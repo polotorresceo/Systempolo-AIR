@@ -101,7 +101,7 @@
       box-shadow: 0 0 25px rgba(255, 204, 0, 0.9);
     }
 
-    /* HERO SECTION CON VIDEO DE AVATAR EN MONTERREY */
+    /* HERO SECTION EN PORTADA CON VIDEO DE AVATAR Y MACROPLAZA MONTERREY */
     .hero {
       max-width: 1200px;
       margin: 25px auto;
@@ -263,3 +263,472 @@
       border: 2px solid var(--border-glow);
       border-radius: 30px;
       padding: 14px 20px;
+      color: #fff;
+      font-size: 1rem;
+      outline: none;
+      transition: all 0.3s ease;
+      margin-bottom: 15px;
+    }
+
+    .search-bar:focus {
+      border-color: var(--immu-cyan);
+      box-shadow: 0 0 15px rgba(0, 240, 255, 0.4);
+    }
+
+    .filter-tags {
+      display: flex;
+      gap: 10px;
+      overflow-x: auto;
+      padding-bottom: 10px;
+    }
+
+    .filter-btn {
+      background: var(--bg-card);
+      border: 1px solid var(--immu-blue);
+      color: var(--text-muted);
+      padding: 8px 16px;
+      border-radius: 20px;
+      font-size: 0.85rem;
+      font-weight: 700;
+      cursor: pointer;
+      white-space: nowrap;
+      transition: all 0.3s ease;
+    }
+
+    .filter-btn.active, .filter-btn:hover {
+      background: var(--immu-blue);
+      color: #fff;
+      box-shadow: 0 0 10px rgba(0, 82, 204, 0.6);
+    }
+
+    /* GRID DE VIDEOS REELS EN FORMATO 9:16 */
+    .catalog-section {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    .section-title {
+      font-size: 1.4rem;
+      font-weight: 800;
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: #fff;
+    }
+
+    .section-title::before {
+      content: '';
+      width: 5px;
+      height: 24px;
+      background: var(--snaptube-yellow);
+      border-radius: 3px;
+    }
+
+    .video-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
+      gap: 20px;
+    }
+
+    @media (min-width: 600px) {
+      .video-grid {
+        grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      }
+    }
+
+    .video-card {
+      background: var(--bg-card);
+      border-radius: 16px;
+      overflow: hidden;
+      border: 1px solid rgba(0, 163, 255, 0.2);
+      transition: all 0.3s ease;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+    }
+
+    .video-card:hover {
+      transform: translateY(-6px);
+      border-color: var(--immu-cyan);
+      box-shadow: 0 10px 25px rgba(0, 240, 255, 0.3);
+    }
+
+    .thumbnail-box {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 9/16;
+      background: #000;
+      overflow: hidden;
+      cursor: pointer;
+    }
+
+    .thumbnail-box img, .thumbnail-box iframe {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border: none;
+    }
+
+    .badge-new {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      background: var(--badge-red);
+      color: #fff;
+      font-weight: 900;
+      font-size: 0.65rem;
+      padding: 2px 6px;
+      border-radius: 3px;
+      transform: rotate(-5deg);
+      box-shadow: 0 2px 6px rgba(0,0,0,0.5);
+      z-index: 2;
+    }
+
+    .video-number {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      background: rgba(0,0,0,0.85);
+      border: 1px solid var(--immu-cyan);
+      color: var(--immu-cyan);
+      font-family: 'Orbitron', sans-serif;
+      font-weight: 700;
+      font-size: 0.75rem;
+      padding: 2px 6px;
+      border-radius: 4px;
+      z-index: 2;
+    }
+
+    .watermark-tag {
+      position: absolute;
+      bottom: 10px;
+      left: 10px;
+      background: rgba(10, 12, 16, 0.85);
+      backdrop-filter: blur(4px);
+      color: var(--snaptube-yellow);
+      font-size: 0.65rem;
+      font-weight: 800;
+      padding: 2px 6px;
+      border-radius: 3px;
+      z-index: 2;
+    }
+
+    .play-btn-overlay {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 45px;
+      height: 45px;
+      background: rgba(0, 82, 204, 0.85);
+      border: 2px solid var(--immu-cyan);
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      box-shadow: 0 0 15px rgba(0, 240, 255, 0.6);
+      transition: all 0.3s ease;
+      z-index: 2;
+    }
+
+    .play-btn-overlay::after {
+      content: '';
+      width: 0;
+      height: 0;
+      border-style: solid;
+      border-width: 8px 0 8px 14px;
+      border-color: transparent transparent transparent #ffffff;
+      margin-left: 3px;
+    }
+
+    .thumbnail-box:hover .play-btn-overlay {
+      transform: translate(-50%, -50%) scale(1.15);
+      background: var(--badge-red);
+      border-color: #fff;
+    }
+
+    .video-info {
+      padding: 12px;
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+      justify-content: space-between;
+    }
+
+    .video-title {
+      font-size: 0.85rem;
+      font-weight: 800;
+      line-height: 1.3;
+      margin-bottom: 8px;
+      color: #fff;
+    }
+
+    .video-highlight {
+      background: var(--badge-red);
+      color: #fff;
+      padding: 0 4px;
+      border-radius: 2px;
+    }
+
+    .neon-cyan {
+      color: var(--immu-cyan);
+      text-shadow: 0 0 8px rgba(0, 240, 255, 0.8);
+    }
+
+    .neon-yellow {
+      color: var(--snaptube-yellow);
+      text-shadow: 0 0 8px rgba(255, 215, 0, 0.8);
+    }
+
+    .buy-btn-single {
+      background: linear-gradient(135deg, var(--snaptube-yellow), #ffaa00);
+      color: #000;
+      font-size: 0.8rem;
+      font-weight: 900;
+      text-align: center;
+      padding: 10px;
+      border-radius: 8px;
+      text-decoration: none;
+      text-transform: uppercase;
+      box-shadow: 0 2px 10px rgba(255, 204, 0, 0.4);
+      transition: all 0.2s ease;
+      margin-top: 8px;
+    }
+
+    .buy-btn-single:hover {
+      background: #ffffff;
+      box-shadow: 0 0 15px rgba(255, 255, 255, 0.8);
+    }
+
+    .sticky-bar {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: rgba(10, 12, 16, 0.95);
+      backdrop-filter: blur(10px);
+      border-top: 2px solid var(--snaptube-yellow);
+      padding: 12px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 1000;
+      box-shadow: 0 -5px 20px rgba(0,0,0,0.8);
+    }
+
+    .sticky-info {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .sticky-price {
+      font-size: 1.2rem;
+      font-weight: 900;
+      color: var(--snaptube-yellow);
+    }
+
+    .sticky-sub {
+      font-size: 0.7rem;
+      color: var(--immu-cyan);
+      font-weight: 700;
+    }
+
+    .sticky-btn {
+      background: linear-gradient(135deg, var(--snaptube-yellow), #ffaa00);
+      color: #000;
+      font-weight: 900;
+      font-size: 0.9rem;
+      padding: 10px 18px;
+      border-radius: 25px;
+      text-decoration: none;
+      box-shadow: 0 0 15px rgba(255, 204, 0, 0.6);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER NAVBAR -->
+  <header>
+    <div class="brand">
+      <div class="brand-logo">SystemPolo</div>
+      <div class="brand-tag">AI LAB</div>
+    </div>
+    <a href="https://wa.me/522214282564?text=Hola%20Polo,%20quiero%20el%20Pack%20Preventa%20de%2030%20Videos%20Immunotec%20por%20$1500" class="header-cta" target="_blank">
+      ⚡ PEDIR PACK $1,500
+    </a>
+  </header>
+
+  <!-- HERO SECTION CON VIDEO DE AVATAR EN MONTERREY -->
+  <section class="hero">
+    <div class="hero-card">
+      <div class="hero-video-container">
+        <span class="hero-video-badge">NUEVO REEL 4K</span>
+        <video autoplay loop muted playsinline poster="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=600&auto=format&fit=crop">
+          <source src="avatar-monterrey.mp4" type="video/mp4">
+          Tu navegador no soporta reproducción de video.
+        </video>
+      </div>
+      <div class="hero-content">
+        <div class="hero-subtitle">Preventa Exclusiva para Partners Immunotec</div>
+        <h1 class="hero-title">Pack de 30 Videos IA para Redes Sociales</h1>
+        <p class="hero-desc">
+          Videos cortos magnéticos (Reels/Shorts 9:16) listos para subir a IG, FB y WhatsApp. Personalizados con tu nombre y teléfono para automatizar la prospección de tu red.
+        </p>
+        
+        <div class="offer-box">
+          <div class="price-tag">
+            $1,500 MXN <span>$4,500 MXN</span>
+          </div>
+          <div class="bonus-tag">
+            🎁 REGALO: Embudo de Ventas Digital (Valorado en $2,000 MXN)
+          </div>
+        </div>
+
+        <a href="https://wa.me/522214282564?text=Hola%20Polo,%20quiero%20apartar%20mi%20lugar%20en%20la%20preventa%20del%20Pack%20de%2030%20Videos%20Immunotec" class="hero-btn" target="_blank">
+          🚀 RESERVAR PACK EN PREVENTA
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FILTROS Y BUSCADOR -->
+  <section class="controls-section">
+    <input type="text" id="searchInput" class="search-bar" placeholder="🔍 Buscar punto de dolor, producto o tema (ej. autismo, fatiga, colitis)...">
+    
+    <div class="filter-tags">
+      <button class="filter-btn active" data-filter="all">Todos (30)</button>
+      <button class="filter-btn" data-filter="glutation">Glutatión & Celular</button>
+      <button class="filter-btn" data-filter="cerebral">Salud Cerebral & Enfoque</button>
+      <button class="filter-btn" data-filter="digestivo">Microbioma & Digestión</button>
+      <button class="filter-btn" data-filter="rendimiento">Energía & Deporte</button>
+      <button class="filter-btn" data-filter="prevencion">Prevención & Bienestar</button>
+      <button class="filter-btn" data-filter="negocio">Red & Negocio</button>
+    </div>
+  </section>
+
+  <!-- CATÁLOGO COMPLETO DE LOS 30 VIDEOS DEL MES -->
+  <section class="catalog-section">
+    <h2 class="section-title">Directorio de los 30 Videos del Mes</h2>
+    <div class="video-grid" id="videoGrid"></div>
+  </section>
+
+  <!-- BARRA FLOTANTE MÓVIL -->
+  <div class="sticky-bar">
+    <div class="sticky-info">
+      <div class="sticky-price">$1,500 MXN</div>
+      <div class="sticky-sub">30 Videos + Funnel Gratis</div>
+    </div>
+    <a href="https://wa.me/522214282564?text=Hola%20Polo,%20quiero%20pedir%20el%20Pack%20Completo%20de%2030%20Videos" class="sticky-btn" target="_blank">
+      PEDIR AHORA
+    </a>
+  </div>
+
+  <script>
+    // BASE DE DATOS COMPLETA DE LOS 30 VIDEOS CON FOTOS HIPERREALISTAS 30+ Y COLORES NEÓN
+    const videosData = [
+      // BLOQUE 1: GLUTATIÓN Y SALUD CELULAR
+      { id: 1, num: "#01", title: "¿FATIGA CRÓNICA? <span class='video-highlight'>El Secreto del Glutatión</span>", category: "glutation", ytId: "dQw4w9WgXcQ", poster: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=600&auto=format&fit=crop" },
+      { id: 2, num: "#02", title: "REVERSA EL TIEMPO: <span class='neon-cyan'>Envejecimiento Celular</span>", category: "glutation", ytId: "dQw4w9WgXcQ", poster: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=600&auto=format&fit=crop" },
+      { id: 3, num: "#03", title: "RECUPERACIÓN MUSCULAR: <span class='neon-yellow'>Atletas de Alto Nivel</span>", category: "glutation", ytId: "dQw4w9WgXcQ", poster: "https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e?q=80&w=600&auto=format&fit=crop" },
+      { id: 4, num: "#04", title: "<span class='video-highlight'>DEFENSAS BAJAS</span> en Cambios de Clima", category: "glutation", ytId: "dQw4w9WgXcQ", poster: "https://images.unsplash.com/photo-1506126613408-eca07ce68773?q=80&w=600&auto=format&fit=crop" },
+      { id: 5, num: "#05", title: "ESTRÉS OXIDATIVO: <span class='neon-cyan'>Jornadas Ejecutivas Intensas</span>", category: "glutation", ytId: "dQw4w9WgXcQ", poster: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=600&auto=format&fit=crop" },
+      { id: 6, num: "#06", title: "<span class='video-highlight'>RIGIDEZ MATUTINA</span> y Desgaste Articular", category: "glutation", ytId: "dQw4w9WgXcQ", poster: "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?q=80&w=600&auto=format&fit=crop" },
+
+      // BLOQUE 2: SALUD CEREBRAL Y ENFOQUE
+      { id: 7, num: "#07", title: "WIMMS & ENFOQUE: <span class='neon-yellow'>Autismo y Neurodesarrollo</span>", category: "cerebral", ytId: "dQw4w9WgXcQ", poster: "https://images.unsplash.com/photo-1509062522246-3755977927d7?q=80&w=600&auto=format&fit=crop" },
+      { id: 8, num: "#08", title: "ELIMINA LA <span class='video-highlight'>NIEBLA MENTAL</span> en el Trabajo", category: "cerebral", ytId: "dQw4w9WgXcQ", poster: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=600&auto=format&fit=crop" },
+      { id: 9, num: "#09", title: "<span class='neon-cyan'>INSOMNIO Y ANSIEDAD</span> Duerme Profundo Hoy", category: "cerebral", ytId: "dQw4w9WgXcQ", poster: "https://images.unsplash.com/photo-1511295742362-92c96b124e52?q=80&w=600&auto=format&fit=crop" },
+      { id: 10, num: "#10", title: "AGILIDAD MENTAL: <span class='video-highlight'>Memoria a Corto Plazo</span>", category: "cerebral", ytId: "dQw4w9WgXcQ", poster: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=600&auto=format&fit=crop" },
+      { id: 11, num: "#11", title: "SOBRECARGA EMOCIONAL: <span class='neon-yellow'>Agotamiento Nervioso</span>", category: "cerebral", ytId: "dQw4w9WgXcQ", poster: "https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?q=80&w=600&auto=format&fit=crop" },
+
+      // BLOQUE 3: SALUD DIGESTIVA Y MICROBIOMA
+      { id: 12, num: "#12", title: "<span class='video-highlight'>INFLAMACIÓN Y COLITIS</span> Digestión Lenta", category: "digestivo", ytId: "dQw4w9WgXcQ", poster: "https://images.unsplash.com/photo-1505576399279-565b52d4ac71?q=80&w=600&auto=format&fit=crop" },
+      { id: 13, num: "#13", title: "RECUPERA TU MICROBIOTA: <span class='neon-cyan'>Uso de Antibióticos</span>", category: "digestivo", ytId: "dQw4w9WgXcQ", poster: "https://images.unsplash.com/photo-1512290900673-04b38d97534d?q=80&w=600&auto=format&fit=crop" },
+      { id: 14, num: "#14", title: "POCA ENERGÍA MATUTINA: <span class='neon-yellow'>Absorción Intestinal</span>", category: "digestivo", ytId: "dQw4w9WgXcQ", poster: "https://images.unsplash.com/photo-1492562080023-ab3db95bfbce?q=80&w=600&auto=format&fit=crop" },
+      { id: 15, num: "#15", title: "<span class='video-highlight'>RETENCIÓN DE LÍQUIDOS</span> Desintoxicación Celular", category: "digestivo", ytId: "dQw4w9WgXcQ", poster: "https://images.unsplash.com/photo-1517838277536-f5f99be501cd?q=80&w=600&auto=format&fit=crop" },
+
+      // BLOQUE 4: RENDIMIENTO FÍSICO, PESO Y ENERGÍA
+      { id: 16, num: "#16", title: "<span class='neon-yellow'>BAJÓN DE LAS 3 PM</span> Energía Renal y Física", category: "rendimiento", ytId: "dQw4w9WgXcQ", poster: "https://images.unsplash.com/photo-1534438327276-14e5300c3a48?q=80&w=600&auto=format&fit=crop" },
+      { id: 17, num: "#17", title: "CONTROL DE ANTOJOS: <span class='video-highlight'>Ansiedad por Comer</span>", category: "rendimiento", ytId: "dQw4w9WgXcQ", poster: "https://images.unsplash.com/photo-1498837167922-ddd27525d352?q=80&w=600&auto=format&fit=crop" },
+      { id: 18, num: "#18", title: "MASA MUSCULAR: <span class='neon-cyan'>Entrenamiento en Gimnasio</span>", category: "rendimiento", ytId: "dQw4w9WgXcQ", poster: "https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?q=80&w=600&auto=format&fit=crop" },
+      { id: 19, num: "#19", title: "DESHIDRATACIÓN & CALAMBRES: <span class='video-highlight'>Minerales Clave</span>", category: "rendimiento", ytId: "dQw4w9WgXcQ", poster: "https://images.unsplash.com/photo-1517838277536-f5f99be501cd?q=80&w=600&auto=format&fit=crop" },
+      { id: 20, num: "#20", title: "FUERZA Y RESISTENCIA: <span class='neon-yellow'>Rendimiento Deportivo</span>", category: "rendimiento", ytId: "dQw4w9WgXcQ", poster: "https://images.unsplash.com/photo-1517838277536-f5f99be501cd?q=80&w=600&auto=format&fit=crop" },
+
+      // BLOQUE 5: ESTILO DE VIDA Y PREVENCIÓN
+      { id: 21, num: "#21", title: "<span class='video-highlight'>PICOS DE GLUCOSA</span> y Resistencia Insulínica", category: "prevencion", ytId: "dQw4w9WgXcQ", poster: "https://images.unsplash.com/photo-1559839734-2b71ea197ec2?q=80&w=600&auto=format&fit=crop" },
+      { id: 22, num: "#22", title: "SALUD CIRCULATORIA: <span class='neon-cyan'>Sensación de Piernas Pesadas</span>", category: "prevencion", ytId: "dQw4w9WgXcQ", poster: "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?q=80&w=600&auto=format&fit=crop" },
+      { id: 23, num: "#23", title: "ADULTOS MAYORES: <span class='video-highlight'>Vitalidad y Defensas</span>", category: "prevencion", ytId: "dQw4w9WgXcQ", poster: "https://images.unsplash.com/photo-1581579438747-1dc8d1e05dd8?q=80&w=600&auto=format&fit=crop" },
+      { id: 24, num: "#24", title: "PIEL OPACA Y UÑAS: <span class='neon-yellow'>Colágeno y Celular</span>", category: "prevencion", ytId: "dQw4w9WgXcQ", poster: "https://images.unsplash.com/photo-1512290900673-04b38d97534d?q=80&w=600&auto=format&fit=crop" },
+      { id: 25, num: "#25", title: "ESTRÉS OXIDATIVO: <span class='video-highlight'>Carga Laboral Extrema</span>", category: "prevencion", ytId: "dQw4w9WgXcQ", poster: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=600&auto=format&fit=crop" },
+      { id: 26, num: "#26", title: "POST-RECUPERACIÓN: <span class='neon-cyan'>Procesos Virales</span>", category: "prevencion", ytId: "dQw4w9WgXcQ", poster: "https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?q=80&w=600&auto=format&fit=crop" },
+
+      // BLOQUE 6: NEGOCIO Y NETWORK MARKETING AUTOMATIZADO
+      { id: 27, num: "#27", title: "<span class='neon-yellow'>INGRESOS EXTRA</span> Distribuyendo Ciencia Real", category: "negocio", ytId: "dQw4w9WgXcQ", poster: "https://images.unsplash.com/photo-1560250097-0b93528c311a?q=80&w=600&auto=format&fit=crop" },
+      { id: 28, num: "#28", title: "<span class='video-highlight'>PROSPECCIÓN AUTOMÁTICA</span> con Videos de IA", category: "negocio", ytId: "dQw4w9WgXcQ", poster: "https://images.unsplash.com/photo-1551836022-d5d88e9218df?q=80&w=600&auto=format&fit=crop" },
+      { id: 29, num: "#29", title: "LA INDUSTRIA DEL BIENESTAR: <span class='neon-cyan'>Crecimiento Exponencial</span>", category: "negocio", ytId: "dQw4w9WgXcQ", poster: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=600&auto=format&fit=crop" },
+      { id: 30, num: "#30", title: "DE CONSUMIDOR A SOCIO: <span class='neon-yellow'>Escala Tu Red</span>", category: "negocio", ytId: "dQw4w9WgXcQ", poster: "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?q=80&w=600&auto=format&fit=crop" }
+    ];
+
+    const videoGrid = document.getElementById('videoGrid');
+    const searchInput = document.getElementById('searchInput');
+    const filterBtns = document.querySelectorAll('.filter-btn');
+
+    function renderVideos(videos) {
+      videoGrid.innerHTML = '';
+      videos.forEach(video => {
+        const card = document.createElement('div');
+        card.className = 'video-card';
+        card.innerHTML = `
+          <div class="thumbnail-box" onclick="playTrailer(this, '${video.ytId}')">
+            <span class="badge-new">NEW</span>
+            <span class="video-number">${video.num}</span>
+            <span class="watermark-tag">SystemPolo AI</span>
+            <div class="play-btn-overlay"></div>
+            <img src="${video.poster}" alt="${video.title}">
+          </div>
+          <div class="video-info">
+            <div class="video-title">${video.title}</div>
+            <a href="https://wa.me/522214282564?text=Hola%20Polo,%20quiero%20comprar%20el%20Video%20${video.num}%20por%20$150%20MXN" class="buy-btn-single" target="_blank">
+              COMPRAR $150 MXN
+            </a>
+          </div>
+        `;
+        videoGrid.appendChild(card);
+      });
+    }
+
+    function playTrailer(container, ytId) {
+      container.innerHTML = `
+        <iframe src="https://www.youtube.com/embed/${ytId}?autoplay=1&mute=0&controls=1" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+      `;
+    }
+
+    filterBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        filterBtns.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        const filter = btn.getAttribute('data-filter');
+        if (filter === 'all') {
+          renderVideos(videosData);
+        } else {
+          const filtered = videosData.filter(v => v.category === filter);
+          renderVideos(filtered);
+        }
+      });
+    });
+
+    searchInput.addEventListener('input', (e) => {
+      const query = e.target.value.toLowerCase();
+      const filtered = videosData.filter(v => 
+        v.title.toLowerCase().includes(query) || 
+        v.num.toLowerCase().includes(query)
+      );
+      renderVideos(filtered);
+    });
+
+    renderVideos(videosData);
+  </script>
+</body>
+</html>
