@@ -1,4 +1,6 @@
 HTML
+
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -336,7 +338,7 @@ HTML
       border-color: var(--immu-electric);
     }
 
-    /* CATÁLOGO DE IFRAMES 9:16 */
+    /* CATÁLOGO DE TARJETAS INTERACTIVAS (IMAGEN -> VIDEO) */
     .catalog-section {
       max-width: 1200px;
       margin: 20px auto;
@@ -397,12 +399,52 @@ HTML
       aspect-ratio: 9/16;
       background: #000;
       overflow: hidden;
+      cursor: pointer;
+    }
+
+    .thumbnail-box img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.3s ease;
+    }
+
+    .thumbnail-box:hover img {
+      transform: scale(1.05);
+    }
+
+    /* BOTÓN DE PLAY FLOTANTE SOBRE LA MINIATURA */
+    .play-overlay {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background: rgba(0, 82, 204, 0.85);
+      border: 2px solid var(--immu-cyan);
+      color: #fff;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.2rem;
+      box-shadow: 0 0 20px rgba(0, 240, 255, 0.6);
+      pointer-events: none;
+      transition: all 0.3s ease;
+    }
+
+    .thumbnail-box:hover .play-overlay {
+      background: var(--immu-cyan);
+      color: #000;
+      transform: translate(-50%, -50%) scale(1.1);
     }
 
     .thumbnail-box iframe {
       width: 100%;
       height: 100%;
       border: none;
+      display: none;
     }
 
     .badge-new {
@@ -572,14 +614,17 @@ HTML
       ⚡ PREVENTA $1,500
     </a>
   </header>
+
+
+
   
-  <!-- HERO SECTION CON IFRAME PRINCIPAL -->
+  <!-- HERO SECTION -->
   <section class="hero">
     <div class="hero-card">
       <div class="hero-video-container">
         <span class="hero-video-badge">NUEVO REEL 4K</span>
         <div class="hero-video-box">
-          <iframe src="https://www.youtube.com/embed/Yb78fWhq4Ow?controls=1&modestbranding=1&rel=0&loop=1&playlist=KvxRT_U9r-U" 
+          <iframe src="https://www.youtube.com/embed/HLv_jWDXcj4?controls=1&modestbranding=1&rel=0&loop=1&playlist=KvxRT_U9r-U" 
                   allow="encrypted-media" allowfullscreen>
           </iframe>
         </div>
@@ -627,458 +672,518 @@ HTML
     </div>
   </section>
 
-  <!-- CATÁLOGO DE 30 VIDEOS CON IFRAMES VERTICALES Y LOOP -->
+  <!-- CATÁLOGO DE 30 VIDEOS CON MINIATURAS INTERACTIVAS -->
   <section class="catalog-section">
     <h2 class="section-title">Directorio de los 30 Videos del Mes</h2>
     <div class="video-grid" id="videoGrid">
 
-      <!-- #01 -->
+      <!-- #01 (Ejemplo de Tarjeta: Cambia data-img por tu foto y data-video por tu ID de YouTube) -->
       <div class="video-card" data-category="glutation">
-        <div class="thumbnail-box">
+        <div class="thumbnail-box" onclick="loadVideo(this)" data-video="TU_ID_AQUÍ">
           <span class="badge-new">NEW</span>
           <span class="video-number">#01</span>
           <span class="watermark-tag">SystemPolo AI</span>
-          <iframe src="https://www.youtube.com/embed/TU_ID_AQUÍ?controls=1&modestbranding=1&rel=0&loop=1&playlist=TU_ID_AQUÍ" allow="encrypted-media" allowfullscreen></iframe>
+          <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=600&auto=format&fit=crop&q=80" alt="Fatiga Crónica">
+          <div class="play-overlay">▶</div>
+          <iframe data-src="" allow="encrypted-media" allowfullscreen></iframe>
         </div>
         <div class="video-info">
           <div class="video-title">¿FATIGA CRÓNICA? <span class="video-highlight">El Secreto del Glutatión</span></div>
           <div class="pricing-chips"><span class="chip">1x$150</span><span class="chip">2x$200</span><span class="chip">3x$250</span></div>
-          <a href="https://wa.me/522214282564?text=Hola%20Polo,%20quiero%20pedir%20el%20Video%20%2301%20($150)" class="buy-btn-single" target="_blank">PEDIR VIDEO $150</a>
+          <a href="https://wa.me/522214282564?text=Hola%20Polo,%20quiero%20pedir%20el%20Video%20%2301" class="buy-btn-single" target="_blank">PEDIR VIDEO $150</a>
         </div>
       </div>
 
       <!-- #02 -->
       <div class="video-card" data-category="glutation">
-        <div class="thumbnail-box">
+        <div class="thumbnail-box" onclick="loadVideo(this)" data-video="TU_ID_AQUÍ">
           <span class="badge-new">NEW</span>
           <span class="video-number">#02</span>
           <span class="watermark-tag">SystemPolo AI</span>
-          <iframe src="https://www.youtube.com/embed/TU_ID_AQUÍ?controls=1&modestbranding=1&rel=0&loop=1&playlist=TU_ID_AQUÍ" allow="encrypted-media" allowfullscreen></iframe>
+          <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=600&auto=format&fit=crop&q=80" alt="Envejecimiento">
+          <div class="play-overlay">▶</div>
+          <iframe data-src="" allow="encrypted-media" allowfullscreen></iframe>
         </div>
         <div class="video-info">
           <div class="video-title">REVERSA EL TIEMPO: <span class="neon-cyan">Envejecimiento Celular</span></div>
           <div class="pricing-chips"><span class="chip">1x$150</span><span class="chip">2x$200</span><span class="chip">3x$250</span></div>
-          <a href="https://wa.me/522214282564?text=Hola%20Polo,%20quiero%20pedir%20el%20Video%20%2302%20($150)" class="buy-btn-single" target="_blank">PEDIR VIDEO $150</a>
+          <a href="https://wa.me/522214282564?text=Hola%20Polo,%20quiero%20pedir%20el%20Video%20%2302" class="buy-btn-single" target="_blank">PEDIR VIDEO $150</a>
         </div>
       </div>
 
       <!-- #03 -->
       <div class="video-card" data-category="glutation">
-        <div class="thumbnail-box">
+        <div class="thumbnail-box" onclick="loadVideo(this)" data-video="TU_ID_AQUÍ">
           <span class="badge-new">NEW</span>
           <span class="video-number">#03</span>
           <span class="watermark-tag">SystemPolo AI</span>
-          <iframe src="https://www.youtube.com/embed/TU_ID_AQUÍ?controls=1&modestbranding=1&rel=0&loop=1&playlist=TU_ID_AQUÍ" allow="encrypted-media" allowfullscreen></iframe>
+          <img src="https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e?w=600&auto=format&fit=crop&q=80" alt="Atletas">
+          <div class="play-overlay">▶</div>
+          <iframe data-src="" allow="encrypted-media" allowfullscreen></iframe>
         </div>
         <div class="video-info">
           <div class="video-title">RECUPERACIÓN MUSCULAR: <span class="neon-yellow">Atletas de Alto Nivel</span></div>
           <div class="pricing-chips"><span class="chip">1x$150</span><span class="chip">2x$200</span><span class="chip">3x$250</span></div>
-          <a href="https://wa.me/522214282564?text=Hola%20Polo,%20quiero%20pedir%20el%20Video%20%2303%20($150)" class="buy-btn-single" target="_blank">PEDIR VIDEO $150</a>
+          <a href="https://wa.me/522214282564?text=Hola%20Polo,%20quiero%20pedir%20el%20Video%20%2303" class="buy-btn-single" target="_blank">PEDIR VIDEO $150</a>
         </div>
       </div>
 
       <!-- #04 -->
       <div class="video-card" data-category="glutation">
-        <div class="thumbnail-box">
+        <div class="thumbnail-box" onclick="loadVideo(this)" data-video="TU_ID_AQUÍ">
           <span class="badge-new">NEW</span>
           <span class="video-number">#04</span>
           <span class="watermark-tag">SystemPolo AI</span>
-          <iframe src="https://www.youtube.com/embed/TU_ID_AQUÍ?controls=1&modestbranding=1&rel=0&loop=1&playlist=TU_ID_AQUÍ" allow="encrypted-media" allowfullscreen></iframe>
+          <img src="https://images.unsplash.com/photo-1506126613408-eca07ce68773?w=600&auto=format&fit=crop&q=80" alt="Defensas">
+          <div class="play-overlay">▶</div>
+          <iframe data-src="" allow="encrypted-media" allowfullscreen></iframe>
         </div>
         <div class="video-info">
           <div class="video-title"><span class="video-highlight">DEFENSAS BAJAS</span> en Cambios de Clima</div>
           <div class="pricing-chips"><span class="chip">1x$150</span><span class="chip">2x$200</span><span class="chip">3x$250</span></div>
-          <a href="https://wa.me/522214282564?text=Hola%20Polo,%20quiero%20pedir%20el%20Video%20%2304%20($150)" class="buy-btn-single" target="_blank">PEDIR VIDEO $150</a>
+          <a href="https://wa.me/522214282564?text=Hola%20Polo,%20quiero%20pedir%20el%20Video%20%2304" class="buy-btn-single" target="_blank">PEDIR VIDEO $150</a>
         </div>
       </div>
 
       <!-- #05 -->
       <div class="video-card" data-category="glutation">
-        <div class="thumbnail-box">
+        <div class="thumbnail-box" onclick="loadVideo(this)" data-video="TU_ID_AQUÍ">
           <span class="badge-new">NEW</span>
           <span class="video-number">#05</span>
           <span class="watermark-tag">SystemPolo AI</span>
-          <iframe src="https://www.youtube.com/embed/TU_ID_AQUÍ?controls=1&modestbranding=1&rel=0&loop=1&playlist=TU_ID_AQUÍ" allow="encrypted-media" allowfullscreen></iframe>
+          <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=600&auto=format&fit=crop&q=80" alt="Estres">
+          <div class="play-overlay">▶</div>
+          <iframe data-src="" allow="encrypted-media" allowfullscreen></iframe>
         </div>
         <div class="video-info">
           <div class="video-title">ESTRÉS OXIDATIVO: <span class="neon-cyan">Jornadas Ejecutivas</span></div>
           <div class="pricing-chips"><span class="chip">1x$150</span><span class="chip">2x$200</span><span class="chip">3x$250</span></div>
-          <a href="https://wa.me/522214282564?text=Hola%20Polo,%20quiero%20pedir%20el%20Video%20%2305%20($150)" class="buy-btn-single" target="_blank">PEDIR VIDEO $150</a>
+          <a href="https://wa.me/522214282564?text=Hola%20Polo,%20quiero%20pedir%20el%20Video%20%2305" class="buy-btn-single" target="_blank">PEDIR VIDEO $150</a>
         </div>
       </div>
 
       <!-- #06 -->
       <div class="video-card" data-category="glutation">
-        <div class="thumbnail-box">
+        <div class="thumbnail-box" onclick="loadVideo(this)" data-video="TU_ID_AQUÍ">
           <span class="badge-new">NEW</span>
           <span class="video-number">#06</span>
           <span class="watermark-tag">SystemPolo AI</span>
-          <iframe src="https://www.youtube.com/embed/TU_ID_AQUÍ?controls=1&modestbranding=1&rel=0&loop=1&playlist=TU_ID_AQUÍ" allow="encrypted-media" allowfullscreen></iframe>
+          <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=600&auto=format&fit=crop&q=80" alt="Rigidez">
+          <div class="play-overlay">▶</div>
+          <iframe data-src="" allow="encrypted-media" allowfullscreen></iframe>
         </div>
         <div class="video-info">
           <div class="video-title"><span class="video-highlight">RIGIDEZ MATUTINA</span> Articular</div>
           <div class="pricing-chips"><span class="chip">1x$150</span><span class="chip">2x$200</span><span class="chip">3x$250</span></div>
-          <a href="https://wa.me/522214282564?text=Hola%20Polo,%20quiero%20pedir%20el%20Video%20%2306%20($150)" class="buy-btn-single" target="_blank">PEDIR VIDEO $150</a>
+          <a href="https://wa.me/522214282564?text=Hola%20Polo,%20quiero%20pedir%20el%20Video%20%2306" class="buy-btn-single" target="_blank">PEDIR VIDEO $150</a>
         </div>
       </div>
 
       <!-- #07 -->
       <div class="video-card" data-category="cerebral">
-        <div class="thumbnail-box">
+        <div class="thumbnail-box" onclick="loadVideo(this)" data-video="TU_ID_AQUÍ">
           <span class="badge-new">NEW</span>
           <span class="video-number">#07</span>
           <span class="watermark-tag">SystemPolo AI</span>
-          <iframe src="https://www.youtube.com/embed/TU_ID_AQUÍ?controls=1&modestbranding=1&rel=0&loop=1&playlist=TU_ID_AQUÍ" allow="encrypted-media" allowfullscreen></iframe>
+          <img src="https://images.unsplash.com/photo-1509062522246-3755977927d7?w=600&auto=format&fit=crop&q=80" alt="Enfoque">
+          <div class="play-overlay">▶</div>
+          <iframe data-src="" allow="encrypted-media" allowfullscreen></iframe>
         </div>
         <div class="video-info">
           <div class="video-title">WIMMS & ENFOQUE: <span class="neon-yellow">Autismo y Neurodesarrollo</span></div>
           <div class="pricing-chips"><span class="chip">1x$150</span><span class="chip">2x$200</span><span class="chip">3x$250</span></div>
-          <a href="https://wa.me/522214282564?text=Hola%20Polo,%20quiero%20pedir%20el%20Video%20%2307%20($150)" class="buy-btn-single" target="_blank">PEDIR VIDEO $150</a>
+          <a href="https://wa.me/522214282564?text=Hola%20Polo,%20quiero%20pedir%20el%20Video%20%2307" class="buy-btn-single" target="_blank">PEDIR VIDEO $150</a>
         </div>
       </div>
 
       <!-- #08 -->
       <div class="video-card" data-category="cerebral">
-        <div class="thumbnail-box">
+        <div class="thumbnail-box" onclick="loadVideo(this)" data-video="TU_ID_AQUÍ">
           <span class="badge-new">NEW</span>
           <span class="video-number">#08</span>
           <span class="watermark-tag">SystemPolo AI</span>
-          <iframe src="https://www.youtube.com/embed/TU_ID_AQUÍ?controls=1&modestbranding=1&rel=0&loop=1&playlist=TU_ID_AQUÍ" allow="encrypted-media" allowfullscreen></iframe>
+          <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=600&auto=format&fit=crop&q=80" alt="Niebla">
+          <div class="play-overlay">▶</div>
+          <iframe data-src="" allow="encrypted-media" allowfullscreen></iframe>
         </div>
         <div class="video-info">
           <div class="video-title">ELIMINA LA <span class="video-highlight">NIEBLA MENTAL</span></div>
           <div class="pricing-chips"><span class="chip">1x$150</span><span class="chip">2x$200</span><span class="chip">3x$250</span></div>
-          <a href="https://wa.me/522214282564?text=Hola%20Polo,%20quiero%20pedir%20el%20Video%20%2308%20($150)" class="buy-btn-single" target="_blank">PEDIR VIDEO $150</a>
+          <a href="https://wa.me/522214282564?text=Hola%20Polo,%20quiero%20pedir%20el%20Video%20%2308" class="buy-btn-single" target="_blank">PEDIR VIDEO $150</a>
         </div>
       </div>
 
       <!-- #09 -->
       <div class="video-card" data-category="cerebral">
-        <div class="thumbnail-box">
+        <div class="thumbnail-box" onclick="loadVideo(this)" data-video="TU_ID_AQUÍ">
           <span class="badge-new">NEW</span>
           <span class="video-number">#09</span>
           <span class="watermark-tag">SystemPolo AI</span>
-          <iframe src="https://www.youtube.com/embed/TU_ID_AQUÍ?controls=1&modestbranding=1&rel=0&loop=1&playlist=TU_ID_AQUÍ" allow="encrypted-media" allowfullscreen></iframe>
+          <img src="https://images.unsplash.com/photo-1541781774459-bb2af2f05b55?w=600&auto=format&fit=crop&q=80" alt="Insomnio">
+          <div class="play-overlay">▶</div>
+          <iframe data-src="" allow="encrypted-media" allowfullscreen></iframe>
         </div>
         <div class="video-info">
           <div class="video-title"><span class="neon-cyan">INSOMNIO Y ANSIEDAD</span> Duerme Hoy</div>
           <div class="pricing-chips"><span class="chip">1x$150</span><span class="chip">2x$200</span><span class="chip">3x$250</span></div>
-          <a href="https://wa.me/522214282564?text=Hola%20Polo,%20quiero%20pedir%20el%20Video%20%2309%20($150)" class="buy-btn-single" target="_blank">PEDIR VIDEO $150</a>
+          <a href="https://wa.me/522214282564?text=Hola%20Polo,%20quiero%20pedir%20el%20Video%20%2309" class="buy-btn-single" target="_blank">PEDIR VIDEO $150</a>
         </div>
       </div>
 
       <!-- #10 -->
       <div class="video-card" data-category="cerebral">
-        <div class="thumbnail-box">
+        <div class="thumbnail-box" onclick="loadVideo(this)" data-video="TU_ID_AQUÍ">
           <span class="badge-new">NEW</span>
           <span class="video-number">#10</span>
           <span class="watermark-tag">SystemPolo AI</span>
-          <iframe src="https://www.youtube.com/embed/TU_ID_AQUÍ?controls=1&modestbranding=1&rel=0&loop=1&playlist=TU_ID_AQUÍ" allow="encrypted-media" allowfullscreen></iframe>
+          <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=600&auto=format&fit=crop&q=80" alt="Memoria">
+          <div class="play-overlay">▶</div>
+          <iframe data-src="" allow="encrypted-media" allowfullscreen></iframe>
         </div>
         <div class="video-info">
           <div class="video-title">AGILIDAD MENTAL: <span class="video-highlight">Memoria Corto Plazo</span></div>
           <div class="pricing-chips"><span class="chip">1x$150</span><span class="chip">2x$200</span><span class="chip">3x$250</span></div>
-          <a href="https://wa.me/522214282564?text=Hola%20Polo,%20quiero%20pedir%20el%20Video%20%2310%20($150)" class="buy-btn-single" target="_blank">PEDIR VIDEO $150</a>
+          <a href="https://wa.me/522214282564?text=Hola%20Polo,%20quiero%20pedir%20el%20Video%20%2310" class="buy-btn-single" target="_blank">PEDIR VIDEO $150</a>
         </div>
       </div>
 
       <!-- #11 -->
       <div class="video-card" data-category="cerebral">
-        <div class="thumbnail-box">
+        <div class="thumbnail-box" onclick="loadVideo(this)" data-video="TU_ID_AQUÍ">
           <span class="badge-new">NEW</span>
           <span class="video-number">#11</span>
           <span class="watermark-tag">SystemPolo AI</span>
-          <iframe src="https://www.youtube.com/embed/TU_ID_AQUÍ?controls=1&modestbranding=1&rel=0&loop=1&playlist=TU_ID_AQUÍ" allow="encrypted-media" allowfullscreen></iframe>
+          <img src="https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?w=600&auto=format&fit=crop&q=80" alt="Agotamiento">
+          <div class="play-overlay">▶</div>
+          <iframe data-src="" allow="encrypted-media" allowfullscreen></iframe>
         </div>
         <div class="video-info">
           <div class="video-title">SOBRECARGA: <span class="neon-yellow">Agotamiento Nervioso</span></div>
           <div class="pricing-chips"><span class="chip">1x$150</span><span class="chip">2x$200</span><span class="chip">3x$250</span></div>
-          <a href="https://wa.me/522214282564?text=Hola%20Polo,%20quiero%20pedir%20el%20Video%20%2311%20($150)" class="buy-btn-single" target="_blank">PEDIR VIDEO $150</a>
+          <a href="https://wa.me/522214282564?text=Hola%20Polo,%20quiero%20pedir%20el%20Video%20%2311" class="buy-btn-single" target="_blank">PEDIR VIDEO $150</a>
         </div>
       </div>
 
       <!-- #12 -->
       <div class="video-card" data-category="digestivo">
-        <div class="thumbnail-box">
+        <div class="thumbnail-box" onclick="loadVideo(this)" data-video="TU_ID_AQUÍ">
           <span class="badge-new">NEW</span>
           <span class="video-number">#12</span>
           <span class="watermark-tag">SystemPolo AI</span>
-          <iframe src="https://www.youtube.com/embed/TU_ID_AQUÍ?controls=1&modestbranding=1&rel=0&loop=1&playlist=TU_ID_AQUÍ" allow="encrypted-media" allowfullscreen></iframe>
+          <img src="https://images.unsplash.com/photo-1584515979956-d9f6e5d09982?w=600&auto=format&fit=crop&q=80" alt="Colitis">
+          <div class="play-overlay">▶</div>
+          <iframe data-src="" allow="encrypted-media" allowfullscreen></iframe>
         </div>
         <div class="video-info">
           <div class="video-title"><span class="video-highlight">COLITIS Y GASES</span> Digestión Lenta</div>
           <div class="pricing-chips"><span class="chip">1x$150</span><span class="chip">2x$200</span><span class="chip">3x$250</span></div>
-          <a href="https://wa.me/522214282564?text=Hola%20Polo,%20quiero%20pedir%20el%20Video%20%2312%20($150)" class="buy-btn-single" target="_blank">PEDIR VIDEO $150</a>
+          <a href="https://wa.me/522214282564?text=Hola%20Polo,%20quiero%20pedir%20el%20Video%20%2312" class="buy-btn-single" target="_blank">PEDIR VIDEO $150</a>
         </div>
       </div>
 
       <!-- #13 -->
       <div class="video-card" data-category="digestivo">
-        <div class="thumbnail-box">
+        <div class="thumbnail-box" onclick="loadVideo(this)" data-video="TU_ID_AQUÍ">
           <span class="badge-new">NEW</span>
           <span class="video-number">#13</span>
           <span class="watermark-tag">SystemPolo AI</span>
-          <iframe src="https://www.youtube.com/embed/TU_ID_AQUÍ?controls=1&modestbranding=1&rel=0&loop=1&playlist=TU_ID_AQUÍ" allow="encrypted-media" allowfullscreen></iframe>
+          <img src="https://images.unsplash.com/photo-1530497610245-94d3c16cda28?w=600&auto=format&fit=crop&q=80" alt="Microbiota">
+          <div class="play-overlay">▶</div>
+          <iframe data-src="" allow="encrypted-media" allowfullscreen></iframe>
         </div>
         <div class="video-info">
           <div class="video-title">MICROBIOTA: <span class="neon-cyan">Uso de Antibióticos</span></div>
           <div class="pricing-chips"><span class="chip">1x$150</span><span class="chip">2x$200</span><span class="chip">3x$250</span></div>
-          <a href="https://wa.me/522214282564?text=Hola%20Polo,%20quiero%20pedir%20el%20Video%20%2313%20($150)" class="buy-btn-single" target="_blank">PEDIR VIDEO $150</a>
+          <a href="https://wa.me/522214282564?text=Hola%20Polo,%20quiero%20pedir%20el%20Video%20%2313" class="buy-btn-single" target="_blank">PEDIR VIDEO $150</a>
         </div>
       </div>
 
       <!-- #14 -->
       <div class="video-card" data-category="digestivo">
-        <div class="thumbnail-box">
+        <div class="thumbnail-box" onclick="loadVideo(this)" data-video="TU_ID_AQUÍ">
           <span class="badge-new">NEW</span>
           <span class="video-number">#14</span>
           <span class="watermark-tag">SystemPolo AI</span>
-          <iframe src="https://www.youtube.com/embed/TU_ID_AQUÍ?controls=1&modestbranding=1&rel=0&loop=1&playlist=TU_ID_AQUÍ" allow="encrypted-media" allowfullscreen></iframe>
+          <img src="https://images.unsplash.com/photo-1492562080023-ab3db95bfbce?w=600&auto=format&fit=crop&q=80" alt="Absorcion">
+          <div class="play-overlay">▶</div>
+          <iframe data-src="" allow="encrypted-media" allowfullscreen></iframe>
         </div>
         <div class="video-info">
           <div class="video-title">ENERGÍA MATUTINA: <span class="neon-yellow">Absorción Intestinal</span></div>
           <div class="pricing-chips"><span class="chip">1x$150</span><span class="chip">2x$200</span><span class="chip">3x$250</span></div>
-          <a href="https://wa.me/522214282564?text=Hola%20Polo,%20quiero%20pedir%20el%20Video%20%2314%20($150)" class="buy-btn-single" target="_blank">PEDIR VIDEO $150</a>
+          <a href="https://wa.me/522214282564?text=Hola%20Polo,%20quiero%20pedir%20el%20Video%20%2314" class="buy-btn-single" target="_blank">PEDIR VIDEO $150</a>
         </div>
       </div>
 
       <!-- #15 -->
       <div class="video-card" data-category="digestivo">
-        <div class="thumbnail-box">
+        <div class="thumbnail-box" onclick="loadVideo(this)" data-video="TU_ID_AQUÍ">
           <span class="badge-new">NEW</span>
           <span class="video-number">#15</span>
           <span class="watermark-tag">SystemPolo AI</span>
-          <iframe src="https://www.youtube.com/embed/TU_ID_AQUÍ?controls=1&modestbranding=1&rel=0&loop=1&playlist=TU_ID_AQUÍ" allow="encrypted-media" allowfullscreen></iframe>
+          <img src="https://images.unsplash.com/photo-1517838277536-f5f99be501cd?w=600&auto=format&fit=crop&q=80" alt="Liquidos">
+          <div class="play-overlay">▶</div>
+          <iframe data-src="" allow="encrypted-media" allowfullscreen></iframe>
         </div>
         <div class="video-info">
           <div class="video-title"><span class="video-highlight">RETENCIÓN DE LÍQUIDOS</span></div>
           <div class="pricing-chips"><span class="chip">1x$150</span><span class="chip">2x$200</span><span class="chip">3x$250</span></div>
-          <a href="https://wa.me/522214282564?text=Hola%20Polo,%20quiero%20pedir%20el%20Video%20%2315%20($150)" class="buy-btn-single" target="_blank">PEDIR VIDEO $150</a>
+          <a href="https://wa.me/522214282564?text=Hola%20Polo,%20quiero%20pedir%20el%20Video%20%2315" class="buy-btn-single" target="_blank">PEDIR VIDEO $150</a>
         </div>
       </div>
 
       <!-- #16 -->
       <div class="video-card" data-category="rendimiento">
-        <div class="thumbnail-box">
+        <div class="thumbnail-box" onclick="loadVideo(this)" data-video="TU_ID_AQUÍ">
           <span class="badge-new">NEW</span>
           <span class="video-number">#16</span>
           <span class="watermark-tag">SystemPolo AI</span>
-          <iframe src="https://www.youtube.com/embed/TU_ID_AQUÍ?controls=1&modestbranding=1&rel=0&loop=1&playlist=TU_ID_AQUÍ" allow="encrypted-media" allowfullscreen></iframe>
+          <img src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=600&auto=format&fit=crop&q=80" alt="Bajon">
+          <div class="play-overlay">▶</div>
+          <iframe data-src="" allow="encrypted-media" allowfullscreen></iframe>
         </div>
         <div class="video-info">
           <div class="video-title"><span class="neon-yellow">BAJÓN DE LAS 3 PM</span> Energía</div>
           <div class="pricing-chips"><span class="chip">1x$150</span><span class="chip">2x$200</span><span class="chip">3x$250</span></div>
-          <a href="https://wa.me/522214282564?text=Hola%20Polo,%20quiero%20pedir%20el%20Video%20%2316%20($150)" class="buy-btn-single" target="_blank">PEDIR VIDEO $150</a>
+          <a href="https://wa.me/522214282564?text=Hola%20Polo,%20quiero%20pedir%20el%20Video%20%2316" class="buy-btn-single" target="_blank">PEDIR VIDEO $150</a>
         </div>
       </div>
 
       <!-- #17 -->
       <div class="video-card" data-category="rendimiento">
-        <div class="thumbnail-box">
+        <div class="thumbnail-box" onclick="loadVideo(this)" data-video="TU_ID_AQUÍ">
           <span class="badge-new">NEW</span>
           <span class="video-number">#17</span>
           <span class="watermark-tag">SystemPolo AI</span>
-          <iframe src="https://www.youtube.com/embed/TU_ID_AQUÍ?controls=1&modestbranding=1&rel=0&loop=1&playlist=TU_ID_AQUÍ" allow="encrypted-media" allowfullscreen></iframe>
+          <img src="https://images.unsplash.com/photo-1498837167922-ddd27525d352?w=600&auto=format&fit=crop&q=80" alt="Antojos">
+          <div class="play-overlay">▶</div>
+          <iframe data-src="" allow="encrypted-media" allowfullscreen></iframe>
         </div>
         <div class="video-info">
           <div class="video-title">ANTOJOS: <span class="video-highlight">Ansiedad por Comer</span></div>
           <div class="pricing-chips"><span class="chip">1x$150</span><span class="chip">2x$200</span><span class="chip">3x$250</span></div>
-          <a href="https://wa.me/522214282564?text=Hola%20Polo,%20quiero%20pedir%20el%20Video%20%2317%20($150)" class="buy-btn-single" target="_blank">PEDIR VIDEO $150</a>
+          <a href="https://wa.me/522214282564?text=Hola%20Polo,%20quiero%20pedir%20el%20Video%20%2317" class="buy-btn-single" target="_blank">PEDIR VIDEO $150</a>
         </div>
       </div>
 
       <!-- #18 -->
       <div class="video-card" data-category="rendimiento">
-        <div class="thumbnail-box">
+        <div class="thumbnail-box" onclick="loadVideo(this)" data-video="TU_ID_AQUÍ">
           <span class="badge-new">NEW</span>
           <span class="video-number">#18</span>
           <span class="watermark-tag">SystemPolo AI</span>
-          <iframe src="https://www.youtube.com/embed/TU_ID_AQUÍ?controls=1&modestbranding=1&rel=0&loop=1&playlist=TU_ID_AQUÍ" allow="encrypted-media" allowfullscreen></iframe>
+          <img src="https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?w=600&auto=format&fit=crop&q=80" alt="Masa">
+          <div class="play-overlay">▶</div>
+          <iframe data-src="" allow="encrypted-media" allowfullscreen></iframe>
         </div>
         <div class="video-info">
           <div class="video-title">MASA MUSCULAR: <span class="neon-cyan">Gimnasio</span></div>
           <div class="pricing-chips"><span class="chip">1x$150</span><span class="chip">2x$200</span><span class="chip">3x$250</span></div>
-          <a href="https://wa.me/522214282564?text=Hola%20Polo,%20quiero%20pedir%20el%20Video%20%2318%20($150)" class="buy-btn-single" target="_blank">PEDIR VIDEO $150</a>
+          <a href="https://wa.me/522214282564?text=Hola%20Polo,%20quiero%20pedir%20el%20Video%20%2318" class="buy-btn-single" target="_blank">PEDIR VIDEO $150</a>
         </div>
       </div>
 
       <!-- #19 -->
       <div class="video-card" data-category="rendimiento">
-        <div class="thumbnail-box">
+        <div class="thumbnail-box" onclick="loadVideo(this)" data-video="TU_ID_AQUÍ">
           <span class="badge-new">NEW</span>
           <span class="video-number">#19</span>
           <span class="watermark-tag">SystemPolo AI</span>
-          <iframe src="https://www.youtube.com/embed/TU_ID_AQUÍ?controls=1&modestbranding=1&rel=0&loop=1&playlist=TU_ID_AQUÍ" allow="encrypted-media" allowfullscreen></iframe>
+          <img src="https://images.unsplash.com/photo-1517838277536-f5f99be501cd?w=600&auto=format&fit=crop&q=80" alt="Calambres">
+          <div class="play-overlay">▶</div>
+          <iframe data-src="" allow="encrypted-media" allowfullscreen></iframe>
         </div>
         <div class="video-info">
           <div class="video-title">CALAMBRES: <span class="video-highlight">Minerales Clave</span></div>
           <div class="pricing-chips"><span class="chip">1x$150</span><span class="chip">2x$200</span><span class="chip">3x$250</span></div>
-          <a href="https://wa.me/522214282564?text=Hola%20Polo,%20quiero%20pedir%20el%20Video%20%2319%20($150)" class="buy-btn-single" target="_blank">PEDIR VIDEO $150</a>
+          <a href="https://wa.me/522214282564?text=Hola%20Polo,%20quiero%20pedir%20el%20Video%20%2319" class="buy-btn-single" target="_blank">PEDIR VIDEO $150</a>
         </div>
       </div>
 
       <!-- #20 -->
       <div class="video-card" data-category="rendimiento">
-        <div class="thumbnail-box">
+        <div class="thumbnail-box" onclick="loadVideo(this)" data-video="TU_ID_AQUÍ">
           <span class="badge-new">NEW</span>
           <span class="video-number">#20</span>
           <span class="watermark-tag">SystemPolo AI</span>
-          <iframe src="https://www.youtube.com/embed/TU_ID_AQUÍ?controls=1&modestbranding=1&rel=0&loop=1&playlist=TU_ID_AQUÍ" allow="encrypted-media" allowfullscreen></iframe>
+          <img src="https://images.unsplash.com/photo-1517838277536-f5f99be501cd?w=600&auto=format&fit=crop&q=80" alt="Deporte">
+          <div class="play-overlay">▶</div>
+          <iframe data-src="" allow="encrypted-media" allowfullscreen></iframe>
         </div>
         <div class="video-info">
           <div class="video-title">FUERZA: <span class="neon-yellow">Rendimiento Deportivo</span></div>
           <div class="pricing-chips"><span class="chip">1x$150</span><span class="chip">2x$200</span><span class="chip">3x$250</span></div>
-          <a href="https://wa.me/522214282564?text=Hola%20Polo,%20quiero%20pedir%20el%20Video%20%2320%20($150)" class="buy-btn-single" target="_blank">PEDIR VIDEO $150</a>
+          <a href="https://wa.me/522214282564?text=Hola%20Polo,%20quiero%20pedir%20el%20Video%20%2320" class="buy-btn-single" target="_blank">PEDIR VIDEO $150</a>
         </div>
       </div>
 
       <!-- #21 -->
       <div class="video-card" data-category="prevencion">
-        <div class="thumbnail-box">
+        <div class="thumbnail-box" onclick="loadVideo(this)" data-video="TU_ID_AQUÍ">
           <span class="badge-new">NEW</span>
           <span class="video-number">#21</span>
           <span class="watermark-tag">SystemPolo AI</span>
-          <iframe src="https://www.youtube.com/embed/TU_ID_AQUÍ?controls=1&modestbranding=1&rel=0&loop=1&playlist=TU_ID_AQUÍ" allow="encrypted-media" allowfullscreen></iframe>
+          <img src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=600&auto=format&fit=crop&q=80" alt="Glucosa">
+          <div class="play-overlay">▶</div>
+          <iframe data-src="" allow="encrypted-media" allowfullscreen></iframe>
         </div>
         <div class="video-info">
           <div class="video-title"><span class="video-highlight">PICOS DE GLUCOSA</span></div>
           <div class="pricing-chips"><span class="chip">1x$150</span><span class="chip">2x$200</span><span class="chip">3x$250</span></div>
-          <a href="https://wa.me/522214282564?text=Hola%20Polo,%20quiero%20pedir%20el%20Video%20%2321%20($150)" class="buy-btn-single" target="_blank">PEDIR VIDEO $150</a>
+          <a href="https://wa.me/522214282564?text=Hola%20Polo,%20quiero%20pedir%20el%20Video%20%2321" class="buy-btn-single" target="_blank">PEDIR VIDEO $150</a>
         </div>
       </div>
 
       <!-- #22 -->
       <div class="video-card" data-category="prevencion">
-        <div class="thumbnail-box">
+        <div class="thumbnail-box" onclick="loadVideo(this)" data-video="TU_ID_AQUÍ">
           <span class="badge-new">NEW</span>
           <span class="video-number">#22</span>
           <span class="watermark-tag">SystemPolo AI</span>
-          <iframe src="https://www.youtube.com/embed/TU_ID_AQUÍ?controls=1&modestbranding=1&rel=0&loop=1&playlist=TU_ID_AQUÍ" allow="encrypted-media" allowfullscreen></iframe>
+          <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=600&auto=format&fit=crop&q=80" alt="Circulacion">
+          <div class="play-overlay">▶</div>
+          <iframe data-src="" allow="encrypted-media" allowfullscreen></iframe>
         </div>
         <div class="video-info">
           <div class="video-title">CIRCULACIÓN: <span class="neon-cyan">Piernas Pesadas</span></div>
           <div class="pricing-chips"><span class="chip">1x$150</span><span class="chip">2x$200</span><span class="chip">3x$250</span></div>
-          <a href="https://wa.me/522214282564?text=Hola%20Polo,%20quiero%20pedir%20el%20Video%20%2322%20($150)" class="buy-btn-single" target="_blank">PEDIR VIDEO $150</a>
+          <a href="https://wa.me/522214282564?text=Hola%20Polo,%20quiero%20pedir%20el%20Video%20%2322" class="buy-btn-single" target="_blank">PEDIR VIDEO $150</a>
         </div>
       </div>
 
       <!-- #23 -->
       <div class="video-card" data-category="prevencion">
-        <div class="thumbnail-box">
+        <div class="thumbnail-box" onclick="loadVideo(this)" data-video="TU_ID_AQUÍ">
           <span class="badge-new">NEW</span>
           <span class="video-number">#23</span>
           <span class="watermark-tag">SystemPolo AI</span>
-          <iframe src="https://www.youtube.com/embed/TU_ID_AQUÍ?controls=1&modestbranding=1&rel=0&loop=1&playlist=TU_ID_AQUÍ" allow="encrypted-media" allowfullscreen></iframe>
+          <img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=600&auto=format&fit=crop&q=80" alt="Mayores">
+          <div class="play-overlay">▶</div>
+          <iframe data-src="" allow="encrypted-media" allowfullscreen></iframe>
         </div>
         <div class="video-info">
           <div class="video-title">ADULTOS MAYORES: <span class="video-highlight">Vitalidad</span></div>
           <div class="pricing-chips"><span class="chip">1x$150</span><span class="chip">2x$200</span><span class="chip">3x$250</span></div>
-          <a href="https://wa.me/522214282564?text=Hola%20Polo,%20quiero%20pedir%20el%20Video%20%2323%20($150)" class="buy-btn-single" target="_blank">PEDIR VIDEO $150</a>
+          <a href="https://wa.me/522214282564?text=Hola%20Polo,%20quiero%20pedir%20el%20Video%20%2323" class="buy-btn-single" target="_blank">PEDIR VIDEO $150</a>
         </div>
       </div>
 
       <!-- #24 -->
       <div class="video-card" data-category="prevencion">
-        <div class="thumbnail-box">
+        <div class="thumbnail-box" onclick="loadVideo(this)" data-video="TU_ID_AQUÍ">
           <span class="badge-new">NEW</span>
           <span class="video-number">#24</span>
           <span class="watermark-tag">SystemPolo AI</span>
-          <iframe src="https://www.youtube.com/embed/TU_ID_AQUÍ?controls=1&modestbranding=1&rel=0&loop=1&playlist=TU_ID_AQUÍ" allow="encrypted-media" allowfullscreen></iframe>
+          <img src="https://images.unsplash.com/photo-1527799820374-dcf8d9d4a388?w=600&auto=format&fit=crop&q=80" alt="Piel">
+          <div class="play-overlay">▶</div>
+          <iframe data-src="" allow="encrypted-media" allowfullscreen></iframe>
         </div>
         <div class="video-info">
           <div class="video-title">PIEL Y UÑAS: <span class="neon-yellow">Colágeno Celular</span></div>
           <div class="pricing-chips"><span class="chip">1x$150</span><span class="chip">2x$200</span><span class="chip">3x$250</span></div>
-          <a href="https://wa.me/522214282564?text=Hola%20Polo,%20quiero%20pedir%20el%20Video%20%2324%20($150)" class="buy-btn-single" target="_blank">PEDIR VIDEO $150</a>
+          <a href="https://wa.me/522214282564?text=Hola%20Polo,%20quiero%20pedir%20el%20Video%20%2324" class="buy-btn-single" target="_blank">PEDIR VIDEO $150</a>
         </div>
       </div>
 
       <!-- #25 -->
       <div class="video-card" data-category="prevencion">
-        <div class="thumbnail-box">
+        <div class="thumbnail-box" onclick="loadVideo(this)" data-video="TU_ID_AQUÍ">
           <span class="badge-new">NEW</span>
           <span class="video-number">#25</span>
           <span class="watermark-tag">SystemPolo AI</span>
-          <iframe src="https://www.youtube.com/embed/TU_ID_AQUÍ?controls=1&modestbranding=1&rel=0&loop=1&playlist=TU_ID_AQUÍ" allow="encrypted-media" allowfullscreen></iframe>
+          <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=600&auto=format&fit=crop&q=80" alt="Laboral">
+          <div class="play-overlay">▶</div>
+          <iframe data-src="" allow="encrypted-media" allowfullscreen></iframe>
         </div>
         <div class="video-info">
           <div class="video-title">ESTRÉS: <span class="video-highlight">Carga Laboral Extrema</span></div>
           <div class="pricing-chips"><span class="chip">1x$150</span><span class="chip">2x$200</span><span class="chip">3x$250</span></div>
-          <a href="https://wa.me/522214282564?text=Hola%20Polo,%20quiero%20pedir%20el%20Video%20%2325%20($150)" class="buy-btn-single" target="_blank">PEDIR VIDEO $150</a>
+          <a href="https://wa.me/522214282564?text=Hola%20Polo,%20quiero%20pedir%20el%20Video%20%2325" class="buy-btn-single" target="_blank">PEDIR VIDEO $150</a>
         </div>
       </div>
 
       <!-- #26 -->
       <div class="video-card" data-category="prevencion">
-        <div class="thumbnail-box">
+        <div class="thumbnail-box" onclick="loadVideo(this)" data-video="TU_ID_AQUÍ">
           <span class="badge-new">NEW</span>
           <span class="video-number">#26</span>
           <span class="watermark-tag">SystemPolo AI</span>
-          <iframe src="https://www.youtube.com/embed/TU_ID_AQUÍ?controls=1&modestbranding=1&rel=0&loop=1&playlist=TU_ID_AQUÍ" allow="encrypted-media" allowfullscreen></iframe>
+          <img src="https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=600&auto=format&fit=crop&q=80" alt="Virales">
+          <div class="play-overlay">▶</div>
+          <iframe data-src="" allow="encrypted-media" allowfullscreen></iframe>
         </div>
         <div class="video-info">
           <div class="video-title">RECUPERACIÓN: <span class="neon-cyan">Procesos Virales</span></div>
           <div class="pricing-chips"><span class="chip">1x$150</span><span class="chip">2x$200</span><span class="chip">3x$250</span></div>
-          <a href="https://wa.me/522214282564?text=Hola%20Polo,%20quiero%20pedir%20el%20Video%20%2326%20($150)" class="buy-btn-single" target="_blank">PEDIR VIDEO $150</a>
+          <a href="https://wa.me/522214282564?text=Hola%20Polo,%20quiero%20pedir%20el%20Video%20%2326" class="buy-btn-single" target="_blank">PEDIR VIDEO $150</a>
         </div>
       </div>
 
       <!-- #27 -->
       <div class="video-card" data-category="negocio">
-        <div class="thumbnail-box">
+        <div class="thumbnail-box" onclick="loadVideo(this)" data-video="TU_ID_AQUÍ">
           <span class="badge-new">NEW</span>
           <span class="video-number">#27</span>
           <span class="watermark-tag">SystemPolo AI</span>
-          <iframe src="https://www.youtube.com/embed/TU_ID_AQUÍ?controls=1&modestbranding=1&rel=0&loop=1&playlist=TU_ID_AQUÍ" allow="encrypted-media" allowfullscreen></iframe>
+          <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?w=600&auto=format&fit=crop&q=80" alt="Ingresos">
+          <div class="play-overlay">▶</div>
+          <iframe data-src="" allow="encrypted-media" allowfullscreen></iframe>
         </div>
         <div class="video-info">
           <div class="video-title"><span class="neon-yellow">INGRESOS EXTRA</span> Ciencia Real</div>
           <div class="pricing-chips"><span class="chip">1x$150</span><span class="chip">2x$200</span><span class="chip">3x$250</span></div>
-          <a href="https://wa.me/522214282564?text=Hola%20Polo,%20quiero%20pedir%20el%20Video%20%2327%20($150)" class="buy-btn-single" target="_blank">PEDIR VIDEO $150</a>
+          <a href="https://wa.me/522214282564?text=Hola%20Polo,%20quiero%20pedir%20el%20Video%20%2327" class="buy-btn-single" target="_blank">PEDIR VIDEO $150</a>
         </div>
       </div>
 
       <!-- #28 -->
       <div class="video-card" data-category="negocio">
-        <div class="thumbnail-box">
+        <div class="thumbnail-box" onclick="loadVideo(this)" data-video="TU_ID_AQUÍ">
           <span class="badge-new">NEW</span>
           <span class="video-number">#28</span>
           <span class="watermark-tag">SystemPolo AI</span>
-          <iframe src="https://www.youtube.com/embed/TU_ID_AQUÍ?controls=1&modestbranding=1&rel=0&loop=1&playlist=TU_ID_AQUÍ" allow="encrypted-media" allowfullscreen></iframe>
+          <img src="https://images.unsplash.com/photo-1551836022-d5d88e9218df?w=600&auto=format&fit=crop&q=80" alt="Prospeccion">
+          <div class="play-overlay">▶</div>
+          <iframe data-src="" allow="encrypted-media" allowfullscreen></iframe>
         </div>
         <div class="video-info">
           <div class="video-title"><span class="video-highlight">PROSPECCIÓN AUTOMÁTICA</span></div>
           <div class="pricing-chips"><span class="chip">1x$150</span><span class="chip">2x$200</span><span class="chip">3x$250</span></div>
-          <a href="https://wa.me/522214282564?text=Hola%20Polo,%20quiero%20pedir%20el%20Video%20%2328%20($150)" class="buy-btn-single" target="_blank">PEDIR VIDEO $150</a>
+          <a href="https://wa.me/522214282564?text=Hola%20Polo,%20quiero%20pedir%20el%20Video%20%2328" class="buy-btn-single" target="_blank">PEDIR VIDEO $150</a>
         </div>
       </div>
 
       <!-- #29 -->
       <div class="video-card" data-category="negocio">
-        <div class="thumbnail-box">
+        <div class="thumbnail-box" onclick="loadVideo(this)" data-video="TU_ID_AQUÍ">
           <span class="badge-new">NEW</span>
           <span class="video-number">#29</span>
           <span class="watermark-tag">SystemPolo AI</span>
-          <iframe src="https://www.youtube.com/embed/TU_ID_AQUÍ?controls=1&modestbranding=1&rel=0&loop=1&playlist=TU_ID_AQUÍ" allow="encrypted-media" allowfullscreen></iframe>
+          <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=600&auto=format&fit=crop&q=80" alt="Bienestar">
+          <div class="play-overlay">▶</div>
+          <iframe data-src="" allow="encrypted-media" allowfullscreen></iframe>
         </div>
         <div class="video-info">
           <div class="video-title">BIENESTAR: <span class="neon-cyan">Crecimiento Exponencial</span></div>
           <div class="pricing-chips"><span class="chip">1x$150</span><span class="chip">2x$200</span><span class="chip">3x$250</span></div>
-          <a href="https://wa.me/522214282564?text=Hola%20Polo,%20quiero%20pedir%20el%20Video%20%2329%20($150)" class="buy-btn-single" target="_blank">PEDIR VIDEO $150</a>
+          <a href="https://wa.me/522214282564?text=Hola%20Polo,%20quiero%20pedir%20el%20Video%20%2329" class="buy-btn-single" target="_blank">PEDIR VIDEO $150</a>
         </div>
       </div>
 
       <!-- #30 -->
       <div class="video-card" data-category="negocio">
-        <div class="thumbnail-box">
+        <div class="thumbnail-box" onclick="loadVideo(this)" data-video="TU_ID_AQUÍ">
           <span class="badge-new">NEW</span>
           <span class="video-number">#30</span>
           <span class="watermark-tag">SystemPolo AI</span>
-          <iframe src="https://www.youtube.com/embed/TU_ID_AQUÍ?controls=1&modestbranding=1&rel=0&loop=1&playlist=TU_ID_AQUÍ" allow="encrypted-media" allowfullscreen></iframe>
+          <img src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=600&auto=format&fit=crop&q=80" alt="Socio">
+          <div class="play-overlay">▶</div>
+          <iframe data-src="" allow="encrypted-media" allowfullscreen></iframe>
         </div>
         <div class="video-info">
           <div class="video-title">SOCIO: <span class="neon-yellow">Escala Tu Red</span></div>
           <div class="pricing-chips"><span class="chip">1x$150</span><span class="chip">2x$200</span><span class="chip">3x$250</span></div>
-          <a href="https://wa.me/522214282564?text=Hola%20Polo,%20quiero%20pedir%20el%20Video%20%2330%20($150)" class="buy-btn-single" target="_blank">PEDIR VIDEO $150</a>
+          <a href="https://wa.me/522214282564?text=Hola%20Polo,%20quiero%20pedir%20el%20Video%20%2330" class="buy-btn-single" target="_blank">PEDIR VIDEO $150</a>
         </div>
       </div>
 
@@ -1097,6 +1202,26 @@ HTML
   </div>
 
   <script>
+    // FUNCIÓN PARA ACTIVAR EL VIDEO AL DARLE CLIC A LA MINIATURA
+    function loadVideo(box) {
+      const videoId = box.getAttribute('data-video');
+      if (!videoId || videoId === "TU_ID_AQUÍ") {
+        alert("Por favor sustituye 'TU_ID_AQUÍ' por el ID real de tu video de YouTube en el código HTML.");
+        return;
+      }
+      const img = box.querySelector('img');
+      const overlay = box.querySelector('.play-overlay');
+      const iframe = box.querySelector('iframe');
+
+      // Ocultar imagen y botón de play
+      if(img) img.style.display = 'none';
+      if(overlay) overlay.style.display = 'none';
+
+      // Cargar iframe con autoplay y loop asegurado
+      iframe.src = `https://www.youtube.com/embed/${videoId}?autoplay=1&controls=1&modestbranding=1&rel=0&loop=1&playlist=${videoId}`;
+      iframe.style.display = 'block';
+    }
+
     // BUSCADOR Y FILTROS EN VIVO
     const searchInput = document.getElementById('searchInput');
     const filterBtns = document.querySelectorAll('.filter-btn');
